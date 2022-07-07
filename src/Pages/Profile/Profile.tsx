@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
     Button,
     Col,
@@ -6,8 +6,6 @@ import {
     Progress,
     Row,
     Space,
-    Upload,
-    UploadProps,
 } from "antd";
 import { Avatar, Card, List, Form, Input } from "antd";
 import { BiUpArrowAlt } from "react-icons/bi";
@@ -81,7 +79,7 @@ const data = [
 ];
 
 const formItemLayout = {
-    labelCol: { span: 4 },
+    labelCol: { span: 8 },
     wrapperCol: { span: 24 },
 };
 
@@ -90,42 +88,21 @@ const formTailLayout = {
     wrapperCol: { span: 8 },
 };
 
-const props: UploadProps = {
-    action: "//jsonplaceholder.typicode.com/posts/",
-    listType: "picture",
-    previewFile(file) {
-        console.log("Your upload file:", file);
-        // Your process logic. Here we just mock to the same file
-        return fetch("https://next.json-generator.com/api/json/get/4ytyBoLK8", {
-            method: "POST",
-            body: file,
-        })
-            .then((res) => res.json())
-            .then(({ thumbnail }) => thumbnail);
-    },
-};
+
 
 const Profile = () => {
     const [form] = Form.useForm();
-    const [checkNick, setCheckNick] = useState(false);
-
-    useEffect(() => {
-        form.validateFields(["nickname"]);
-    }, [checkNick, form]);
-
-    const onCheck = async () => {
-        try {
-            const values = await form.validateFields();
-            console.log("Success:", values);
-        } catch (errorInfo) {
-            console.log("Failed:", errorInfo);
-        }
-    };
+    
+    const onFinish = (values: any) => {
+        // console.log(values)
+    form.setFields([{name: "username", value:"sdawdawd"}])
+    console.log(form.getFieldValue("username"))
+    }
 
     return (
         <div className="w-full h-full">
-            <div className="w-full h-[150px] relative bg-transparent border-none !mb-[220px]">
-                <div className="bg-header-bg bg-top bg-cover pt-[100px] pb-[330px] md:pb-[250px] lg:pt-[155px] lg:pb-[272px] relative">
+            <div className="w-full h-[150px] relative bg-transparent border-none mb-[220px]">
+                <div className="bg-header-bg bg-top bg-cover pt-[100px] pb-[330px] lg:pt-[155px] lg:pb-[272px] relative">
                     <span className="absolute block w-full inset-0 opacity-90 bg-gradient-to-r from-sky-500 to-indigo-500"></span>
                     <div className="w-full px-4 lg:px-[30px] lg:max-w-[42%] absolute top-[15%] lg:top-1/3 break-normal">
                         <h1 className="text-white text-[2.75rem] mb-2 md:whitespace-nowrap">
@@ -282,6 +259,7 @@ const Profile = () => {
                                             backgroundColor: "#5e72e4",
                                             borderRadius: "8px",
                                         }}
+                                        
                                     >
                                         Settings
                                     </Button>
@@ -294,11 +272,10 @@ const Profile = () => {
                                     User Information
                                 </h6>
                                 <div className="pl-6">
-                                    <Form form={form} name="dynamic_rule">
+                                    <Form onFinish={onFinish} form={form} name="dynamic_rule" layout="vertical">
                                         <Form.Item
+                                        extra={<span>Helllo</span>}
                                             colon={false}
-                                            className="flex !flex-col"
-                                            labelAlign="left"
                                             {...formItemLayout}
                                             name="username"
                                             label={
@@ -315,48 +292,46 @@ const Profile = () => {
                                             ]}
                                         >
                                             <Input
-                                                className="!px-2 !py-3 !rounded-lg"
+                                                className="!px-3 !py-2 !rounded-lg"
                                                 placeholder="Please input your name"
                                             />
                                         </Form.Item>
                                         <Form.Item
                                             colon={false}
-                                            className="flex !flex-col"
-                                            labelAlign="left"
                                             {...formItemLayout}
-                                            name="nickname"
-                                            label={<span>Email</span>}
+                                            name="email"
+                                            label={<span className="text-sm text-slate-500 font-semibold">Email</span>}
                                             rules={[
                                                 {
-                                                    required: checkNick,
+                                                    type: "email",
+                                                    required: true,
                                                     message:
-                                                        "Please input your nickname",
+                                                        "Please input your email",
                                                 },
                                             ]}
                                         >
                                             <Input
-                                                className="!px-2 !py-3 !rounded-lg"
-                                                placeholder="Please input your nickname"
+                                                className="!px-3 !py-2 !rounded-lg"
+                                                placeholder="Please input your email"
                                             />
                                         </Form.Item>
                                         <Form.Item
                                             colon={false}
-                                            className="flex !flex-col"
-                                            labelAlign="left"
                                             {...formItemLayout}
-                                            name="nickname"
-                                            label={<span>Profile photo</span>}
+                                            
+                                            name="profilephoto"
+                                            label={<span className="text-sm text-slate-500 font-semibold">Profile photo</span>}
                                             rules={[
                                                 {
-                                                    required: checkNick,
+                                                    required: true,
                                                     message:
-                                                        "Please input your nickname",
+                                                        "Please input your profile photo",
                                                 },
                                             ]}
                                         >
                                             <Input
-                                                className="!px-2 !py-3 !rounded-lg !outline-none"
-                                                placeholder="Please input your nickname"
+                                                className="!px-3 !py-2 !rounded-lg !outline-none"
+                                                placeholder="Please input your profile photo"
                                             />
                                         </Form.Item>
 
@@ -367,6 +342,7 @@ const Profile = () => {
                                             <Button
                                                 className="!h-fit !rounded-md !shadow-md !font-semibold !bg-[#2dce89] !border-none !px-4 !py-2"
                                                 type="primary"
+                                                htmlType="submit"
                                             >
                                                 Save
                                             </Button>
@@ -377,17 +353,16 @@ const Profile = () => {
                                 <h6 className="uppercase text-xs mb-6 leading-6 text-slate-400">
                                     Password
                                 </h6>
-                                <div className="pl-6">
-                                    <Form form={form} name="dynamic_rule">
+                                {/* <div className="pl-6">
+                                    <Form form={form} name="dynamic_rule" layout="vertical">
                                         <Form.Item
                                             colon={false}
-                                            className="flex !flex-col"
-                                            labelAlign="left"
                                             {...formItemLayout}
-                                            name="username"
+                                            name="password"
+                                            
                                             label={
                                                 <span className="text-sm text-slate-500 font-semibold">
-                                                    Name
+                                                    Current Password
                                                 </span>
                                             }
                                             rules={[
@@ -398,49 +373,47 @@ const Profile = () => {
                                                 },
                                             ]}
                                         >
-                                            <Input
-                                                className="!px-2 !py-3 !rounded-lg"
+                                            <Input.Password
+                                                className="!px-3 !py-2 !rounded-lg"
                                                 placeholder="Please input your name"
                                             />
                                         </Form.Item>
                                         <Form.Item
                                             colon={false}
-                                            className="flex !flex-col"
-                                            labelAlign="left"
                                             {...formItemLayout}
-                                            name="nickname"
-                                            label={<span>Email</span>}
+                                            name="newpassword"
+                                            dependencies={['password']}
+                                            label={<span className="text-sm text-slate-500 font-semibold">New Password</span>}
                                             rules={[
                                                 {
-                                                    required: checkNick,
+                                                    required: true,
                                                     message:
-                                                        "Please input your nickname",
+                                                        "Please input your password",
                                                 },
                                             ]}
                                         >
-                                            <Input
-                                                className="!px-2 !py-3 !rounded-lg"
-                                                placeholder="Please input your nickname"
+                                            <Input.Password
+                                                className="!px-3 !py-2 !rounded-lg"
+                                                placeholder="Please input new password"
                                             />
                                         </Form.Item>
                                         <Form.Item
                                             colon={false}
-                                            className="flex !flex-col"
-                                            labelAlign="left"
                                             {...formItemLayout}
-                                            name="nickname"
-                                            label={<span>Profile photo</span>}
+                                            name="confirmpassword"
+                                            dependencies={['newpassword']}
+                                            label={<span className="text-sm text-slate-500 font-semibold">Confirm Password</span>}
                                             rules={[
                                                 {
-                                                    required: checkNick,
+                                                    required: true,
                                                     message:
-                                                        "Please input your nickname",
+                                                        "Please confirm your password",
                                                 },
                                             ]}
                                         >
-                                            <Input
-                                                className="!px-2 !py-3 !rounded-lg !outline-none"
-                                                placeholder="Please input your nickname"
+                                            <Input.Password
+                                                className="!px-3 !py-2 !rounded-lg !outline-none"
+                                                placeholder="Please confirm your password..."
                                             />
                                         </Form.Item>
 
@@ -456,7 +429,7 @@ const Profile = () => {
                                             </Button>
                                         </Form.Item>
                                     </Form>
-                                </div>
+                                </div> */}
                             </div>
                         </Card>
                     </Space>
