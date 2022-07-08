@@ -1,4 +1,4 @@
-import { Button, Col, Input, Row } from "antd";
+import { Button, Col, Row } from "antd";
 import {
     BsArrowUp,
     BsHandIndexThumbFill,
@@ -10,7 +10,6 @@ import Table, { ColumnsType } from "antd/lib/table";
 import { useEffect, useRef } from "react";
 import Scrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
-import { NULL } from "sass";
 import BreadCrumb from "../../component/BreadCrumb";
 
 interface DataType {

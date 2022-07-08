@@ -9,7 +9,6 @@ import {
     AiOutlineUser,
 } from "react-icons/ai";
 import { HiOutlineCursorClick } from "react-icons/hi";
-import { FileOutlined, TeamOutlined } from "@ant-design/icons";
 import { Button, Menu, Layout } from "antd";
 import { Link, useLocation } from "react-router-dom";
 const { Sider } = Layout;
@@ -55,10 +54,10 @@ const items = [
                 />
             ),
             getItem(
-                <Link to="/componet/tables">
+                <Link to="/components/tables">
                     <span>Tables</span>
                 </Link>,
-                "/componet/tables",
+                "/component/tables",
                 <AiOutlineTable
                     size={20}
                     color="#5f73e3"
@@ -66,7 +65,9 @@ const items = [
                 />
             ),
             getItem(
-                <span>Cards</span>,
+                <Link to="/components/cards">
+                    <span>Cards</span>
+                </Link>,
                 "location.key",
                 <AiFillCreditCard
                     size={20}

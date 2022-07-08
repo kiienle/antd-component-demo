@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.less";
 import "antd/dist/antd.less";
-import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./component/login/login";
 import HomeComponent from "./component/Home/Home2";
 import Profile from "./Pages/Profile/Profile";
 import Buttons from "./Pages/Buttons/Buttons";
 import Dasboard from "./Pages/Dashboard/dashboard";
-import Home from "./component/Home/home";
+import Cards from "./Pages/Cards/Cards";
 
 function App() {
     return (
@@ -17,6 +17,7 @@ function App() {
                     <Route path="/dashboard" element={<Dasboard />} />
                     <Route path="/components">
                         <Route path="buttons" element={<Buttons />} />
+                        <Route path="cards" element={<Cards />} />
                     </Route>
                     <Route path="/profile" element={<Profile />} />
                 </Route>

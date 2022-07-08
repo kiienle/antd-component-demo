@@ -5,6 +5,7 @@ module.exports = {
             backgroundImage: {
                 "header-bg":
                     "url('https://argon-dashboard-vue3.web.app/assets/profile-cover.5c4992d2.jpg')",
+                "card-bg": "url('https://argon-dashboard-vue3.web.app/assets/window-purple-image.a85ca6fd.jpg')"
             },
         },
         // colors: {

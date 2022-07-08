@@ -1,12 +1,5 @@
 import React from "react";
-import {
-    Button,
-    Col,
-    Divider,
-    Progress,
-    Row,
-    Space,
-} from "antd";
+import { Button, Col, Divider, Progress, Row, Space } from "antd";
 import { Avatar, Card, List, Form, Input } from "antd";
 import { BiUpArrowAlt } from "react-icons/bi";
 import { BsHandIndexThumbFill } from "react-icons/bs";
@@ -26,7 +19,9 @@ const data = [
                 strokeWidth={3}
             />
         ),
-        avatar: <Avatar src="https://joeschmoe.io/api/v1/random" />,
+        avatar: (
+            <Avatar className="w-[]" src="https://joeschmoe.io/api/v1/random" />
+        ),
     },
     {
         title: "Angular Now UI kit Pro",
@@ -38,7 +33,9 @@ const data = [
                 strokeWidth={3}
             />
         ),
-        avatar: <Avatar src="https://joeschmoe.io/api/v1/random" />,
+        avatar: (
+            <Avatar className="w-[]" src="https://joeschmoe.io/api/v1/random" />
+        ),
     },
     {
         title: "Ant Design",
@@ -50,7 +47,9 @@ const data = [
                 strokeWidth={3}
             />
         ),
-        avatar: <Avatar src="https://joeschmoe.io/api/v1/random" />,
+        avatar: (
+            <Avatar className="w-[]" src="https://joeschmoe.io/api/v1/random" />
+        ),
     },
     {
         title: "Ant Design Theme Pro",
@@ -62,7 +61,9 @@ const data = [
                 strokeWidth={3}
             />
         ),
-        avatar: <Avatar src="https://joeschmoe.io/api/v1/random" />,
+        avatar: (
+            <Avatar className="w-[]" src="https://joeschmoe.io/api/v1/random" />
+        ),
     },
     {
         title: "React Ant Design Pro",
@@ -74,7 +75,9 @@ const data = [
                 strokeWidth={3}
             />
         ),
-        avatar: <Avatar src="https://joeschmoe.io/api/v1/random" />,
+        avatar: (
+            <Avatar className="w-[]" src="https://joeschmoe.io/api/v1/random" />
+        ),
     },
 ];
 
@@ -88,16 +91,14 @@ const formTailLayout = {
     wrapperCol: { span: 8 },
 };
 
-
-
 const Profile = () => {
     const [form] = Form.useForm();
-    
-    const onFinish = (values: any) => {
+
+    const onFinish1 = (values: any) => {
         // console.log(values)
-    form.setFields([{name: "username", value:"sdawdawd"}])
-    console.log(form.getFieldValue("username"))
-    }
+        form.resetFields();
+        console.log(form.getFieldValue("username"));
+    };
 
     return (
         <div className="w-full h-full">
@@ -164,10 +165,14 @@ const Profile = () => {
                                 dataSource={data}
                                 className="bg-white rounded-lg"
                                 renderItem={(item) => (
-                                    <List.Item>
+                                    <List.Item className="!py-5">
                                         <List.Item.Meta
+                                            className="!items-center"
                                             avatar={
-                                                <Avatar src="https://joeschmoe.io/api/v1/random" />
+                                                <Avatar
+                                                    className="!w-[48px] !h-[48px]"
+                                                    src="https://joeschmoe.io/api/v1/random"
+                                                />
                                             }
                                             title={
                                                 <a href="https://ant.design">
@@ -259,7 +264,6 @@ const Profile = () => {
                                             backgroundColor: "#5e72e4",
                                             borderRadius: "8px",
                                         }}
-                                        
                                     >
                                         Settings
                                     </Button>
@@ -272,9 +276,14 @@ const Profile = () => {
                                     User Information
                                 </h6>
                                 <div className="pl-6">
-                                    <Form onFinish={onFinish} form={form} name="dynamic_rule" layout="vertical">
+                                    <Form
+                                        onFinish={onFinish1}
+                                        form={form}
+                                        name="dynamic_rule"
+                                        layout="vertical"
+                                    >
                                         <Form.Item
-                                        extra={<span>Helllo</span>}
+                                            extra={<span>Helllo</span>}
                                             colon={false}
                                             {...formItemLayout}
                                             name="username"
@@ -300,7 +309,11 @@ const Profile = () => {
                                             colon={false}
                                             {...formItemLayout}
                                             name="email"
-                                            label={<span className="text-sm text-slate-500 font-semibold">Email</span>}
+                                            label={
+                                                <span className="text-sm text-slate-500 font-semibold">
+                                                    Email
+                                                </span>
+                                            }
                                             rules={[
                                                 {
                                                     type: "email",
@@ -318,9 +331,12 @@ const Profile = () => {
                                         <Form.Item
                                             colon={false}
                                             {...formItemLayout}
-                                            
                                             name="profilephoto"
-                                            label={<span className="text-sm text-slate-500 font-semibold">Profile photo</span>}
+                                            label={
+                                                <span className="text-sm text-slate-500 font-semibold">
+                                                    Profile photo
+                                                </span>
+                                            }
                                             rules={[
                                                 {
                                                     required: true,
@@ -353,13 +369,16 @@ const Profile = () => {
                                 <h6 className="uppercase text-xs mb-6 leading-6 text-slate-400">
                                     Password
                                 </h6>
-                                {/* <div className="pl-6">
-                                    <Form form={form} name="dynamic_rule" layout="vertical">
+                                <div className="pl-6">
+                                    <Form
+                                        form={form}
+                                        name="dynamic_rule"
+                                        layout="vertical"
+                                    >
                                         <Form.Item
                                             colon={false}
                                             {...formItemLayout}
                                             name="password"
-                                            
                                             label={
                                                 <span className="text-sm text-slate-500 font-semibold">
                                                     Current Password
@@ -382,8 +401,12 @@ const Profile = () => {
                                             colon={false}
                                             {...formItemLayout}
                                             name="newpassword"
-                                            dependencies={['password']}
-                                            label={<span className="text-sm text-slate-500 font-semibold">New Password</span>}
+                                            dependencies={["password"]}
+                                            label={
+                                                <span className="text-sm text-slate-500 font-semibold">
+                                                    New Password
+                                                </span>
+                                            }
                                             rules={[
                                                 {
                                                     required: true,
@@ -401,14 +424,35 @@ const Profile = () => {
                                             colon={false}
                                             {...formItemLayout}
                                             name="confirmpassword"
-                                            dependencies={['newpassword']}
-                                            label={<span className="text-sm text-slate-500 font-semibold">Confirm Password</span>}
+                                            dependencies={["newpassword"]}
+                                            label={
+                                                <span className="text-sm text-slate-500 font-semibold">
+                                                    Confirm Password
+                                                </span>
+                                            }
                                             rules={[
                                                 {
                                                     required: true,
                                                     message:
                                                         "Please confirm your password",
                                                 },
+                                                ({ getFieldValue }) => ({
+                                                    validator(_, value) {
+                                                        if (
+                                                            !value ||
+                                                            getFieldValue(
+                                                                "newpassword"
+                                                            ) === value
+                                                        ) {
+                                                            return Promise.resolve();
+                                                        }
+                                                        return Promise.reject(
+                                                            new Error(
+                                                                "The two passwords that you entered do not match!"
+                                                            )
+                                                        );
+                                                    },
+                                                }),
                                             ]}
                                         >
                                             <Input.Password
@@ -429,7 +473,7 @@ const Profile = () => {
                                             </Button>
                                         </Form.Item>
                                     </Form>
-                                </div> */}
+                                </div>
                             </div>
                         </Card>
                     </Space>
