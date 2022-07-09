@@ -118,8 +118,12 @@ const Sidebar = (props: SidebarProps) => {
     useEffect(() => {
         handleSetCurrentMenu(location.pathname);
     }, [location]);
+
     const handleSetCurrentMenu = (key: string) => {
         setCurrentKey([key]);
+        if (windowDimensions.width <= 1024) {
+            setCollapsed(true);
+        }
     };
     return (
         <Sider
@@ -146,15 +150,14 @@ const Sidebar = (props: SidebarProps) => {
                 Techup
             </div>
             <div className="hidden lg:flex items-center justify-between px-4 h-[78px]">
-                {collapsed && (
+                {collapsed ? (
                     <Button
                         style={{ border: "none" }}
                         onClick={() => setCollapsed(!collapsed)}
                     >
                         <AiOutlineMenu size={20} />
                     </Button>
-                )}
-                {collapsed === false && (
+                ) : (
                     <>
                         <div className="uppercase text-indigo-500 text-xl font-extrabold">
                             Techup

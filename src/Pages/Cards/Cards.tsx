@@ -6,7 +6,7 @@ import { BiUpArrowAlt } from "react-icons/bi";
 import { BsFillBarChartFill, BsHandIndexThumbFill } from "react-icons/bs";
 import { FaChartPie, FaCoins } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
-import { HiCode } from "react-icons/hi";
+import { BsFacebook, BsTwitter, BsDribbble } from "react-icons/bs";
 import BreadCrumb from "../../component/BreadCrumb";
 
 const data = [
@@ -25,7 +25,6 @@ const Cards = () => {
     return (
         <div className="w-full h-full">
             <BreadCrumb />
-
             <div className="mx-6">
                 <Row gutter={[24, 24]}>
                     <Col lg={6} md={12} xs={24}>
@@ -320,6 +319,74 @@ const Cards = () => {
                                     </Button>
                                 </div>
                             </Card>
+                            <Card className="w-full !rounded-lg !shadow-md">
+                                <Meta
+                                    className=" flex-col items-center"
+                                    avatar={
+                                        <Avatar
+                                            className="!w-[132px] !h-[132px] !ml-4 !border-[3px] !border-white"
+                                            src="https://argon-dashboard-vue3.web.app/assets/tywin_lannister.08ed8cbf.jpg"
+                                        />
+                                    }
+                                    title={
+                                        <div className="flex flex-col items-center">
+                                            <h3 className="text-lg py-2 !m-0">
+                                                Le Trung Kien
+                                            </h3>
+                                            <h5 className="text-sm text-slate-400 !m-0">
+                                                Hand of The King
+                                            </h5>
+                                        </div>
+                                    }
+                                    description={
+                                        <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
+                                            <span className="flex items-center justify-center w-[38px] h-[38px] text-white bg-[#1da1f2] rounded-full">
+                                                <BsTwitter size={17} />
+                                            </span>
+                                            <span className="flex items-center justify-center w-[38px] h-[38px] text-white bg-[#3b5999] rounded-full">
+                                                <BsFacebook size={17} />
+                                            </span>
+                                            <span className="flex items-center justify-center w-[38px] h-[38px] text-white bg-[#ae4c89] rounded-full">
+                                                <BsDribbble size={17} />
+                                            </span>
+                                        </div>
+                                    }
+                                />
+                            </Card>
+                            <Card
+                                cover={
+                                    <img
+                                        className="!rounded-t-lg"
+                                        alt="example"
+                                        src="https://argon-dashboard-vue3.web.app/assets/man_draw.91b39266.jpg"
+                                    />
+                                }
+                                className="w-full !rounded-lg !shadow-md"
+                            >
+                                <div>
+                                    <div className="mb-4">
+                                        <h3 className="!font-semibold text-base">
+                                            Jobs Description
+                                        </h3>
+                                    </div>
+                                    <p className="!text-base mb-6 text-slate-400">
+                                        Argon is a great free UI package based
+                                        on Bootstrap 4 that includes the most
+                                        important components and features.
+                                    </p>
+
+                                    <Button
+                                        size="large"
+                                        className="!text-white !text-sm !font-semibold"
+                                        style={{
+                                            backgroundColor: "#5e72e4",
+                                            borderRadius: "8px",
+                                        }}
+                                    >
+                                        View More
+                                    </Button>
+                                </div>
+                            </Card>
                         </Space>
                     </Col>
                     <Col lg={8} md={24}>
@@ -330,7 +397,7 @@ const Cards = () => {
                         >
                             <Card
                                 title={
-                                    <h3 className="!font-semibold text-base text-white uppercase text-center !m-0">
+                                    <h3 className="!font-semibold text-lg text-white uppercase text-center !m-0">
                                         Bravo pack
                                     </h3>
                                 }
@@ -362,9 +429,6 @@ const Cards = () => {
                                             <List.Item className="!border-0">
                                                 <List.Item.Meta
                                                     className="!items-center !justify-center"
-                                                    // avatar={
-                                                    //     <Avatar src="https://joeschmoe.io/api/v1/random" />
-                                                    // }
                                                     description={
                                                         <div className="w-fit mx-auto text-white">
                                                             {item.title}
@@ -376,7 +440,7 @@ const Cards = () => {
                                     />
                                     <Button
                                         size="large"
-                                        className="!text-white !border-0 !text-sm !font-semibold"
+                                        className="!text-white !border-0 !text-sm !font-semibold !my-5"
                                         style={{
                                             backgroundColor: "#5e72e4",
                                             borderRadius: "8px",
@@ -447,7 +511,7 @@ const Cards = () => {
                             </Card>
                             <Card
                                 title={
-                                    <h3 className="!font-semibold text-base text-[#5e72e4] uppercase text-center !m-0">
+                                    <h3 className="!font-semibold text-lg text-[#5e72e4] uppercase text-center !m-0">
                                         Bravo pack
                                     </h3>
                                 }
@@ -479,9 +543,6 @@ const Cards = () => {
                                             <List.Item className="!border-0">
                                                 <List.Item.Meta
                                                     className="!items-center !justify-center"
-                                                    // avatar={
-                                                    //     <Avatar src="https://joeschmoe.io/api/v1/random" />
-                                                    // }
                                                     description={
                                                         <div className="w-fit mx-auto text-slate-500">
                                                             {item.title}
@@ -493,7 +554,7 @@ const Cards = () => {
                                     />
                                     <Button
                                         size="large"
-                                        className="!text-white !border-0 !text-sm !font-semibold"
+                                        className="!text-white !border-0 !text-sm !my-5 !font-semibold"
                                         style={{
                                             backgroundColor: "#5e72e4",
                                             borderRadius: "8px",
