@@ -7,6 +7,7 @@ import {
     AiOutlineMenuFold,
     AiOutlineTable,
     AiOutlineUser,
+    AiOutlineBell,
 } from "react-icons/ai";
 import { HiOutlineCursorClick } from "react-icons/hi";
 import { Button, Menu, Layout } from "antd";
@@ -68,10 +69,21 @@ const items = [
                 <Link to="/components/cards">
                     <span>Cards</span>
                 </Link>,
-                "location.key",
+                "/components/cards",
                 <AiFillCreditCard
                     size={20}
                     color="#fc7b5f"
+                    style={{ display: "inline" }}
+                />
+            ),
+            getItem(
+                <Link to="/components/notifications">
+                    <span>Notifications</span>
+                </Link>,
+                "/components/notifications",
+                <AiOutlineBell
+                    size={20}
+                    color="#50d69c"
                     style={{ display: "inline" }}
                 />
             ),
@@ -121,19 +133,19 @@ const Sidebar = (props: SidebarProps) => {
 
     const handleSetCurrentMenu = (key: string) => {
         setCurrentKey([key]);
-        if (windowDimensions.width <= 1024) {
+        if (windowDimensions.width <= 992) {
             setCollapsed(true);
         }
     };
     return (
         <Sider
             breakpoint="lg"
-            collapsedWidth={windowDimensions.width >= 1024 ? 80 : 0}
+            collapsedWidth={windowDimensions.width >= 992 ? 80 : 0}
             collapsed={collapsed}
             onCollapse={(value) => setCollapsed(value)}
             className="!bg-white"
             style={
-                windowDimensions.width <= 1024
+                windowDimensions.width <= 992
                     ? {
                           overflow: "auto",
                           height: "100vh",

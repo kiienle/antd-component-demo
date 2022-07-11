@@ -5,6 +5,7 @@ import { BiUpArrowAlt } from "react-icons/bi";
 import { BsHandIndexThumbFill } from "react-icons/bs";
 import { GoLocation } from "react-icons/go";
 import { FaChartPie } from "react-icons/fa";
+import "antd/dist/antd.less";
 
 const { Meta } = Card;
 
@@ -143,7 +144,7 @@ const Profile = () => {
                                         <h3 className="text-lg pb-2 !m-0">
                                             Le Trung Kien
                                         </h3>
-                                        <h5 className="text-xs">
+                                        <h5 className="text-xs !text-blue-500">
                                             <GoLocation
                                                 size={12}
                                                 className="!inline"
@@ -258,15 +259,7 @@ const Profile = () => {
                             title={
                                 <div className="flex items-center justify-between py-2 ">
                                     <h3 className="!m-0 ">Edit Profile</h3>
-                                    <Button
-                                        type="primary"
-                                        style={{
-                                            backgroundColor: "#5e72e4",
-                                            borderRadius: "8px",
-                                        }}
-                                    >
-                                        Settings
-                                    </Button>
+                                    <Button type="primary">Settings</Button>
                                 </div>
                             }
                             className="!w-full !rounded-lg !shadow-md"

@@ -182,10 +182,7 @@ const Cards = () => {
                                     <Button
                                         size="large"
                                         className="!text-white !text-sm !font-semibold"
-                                        style={{
-                                            backgroundColor: "#5e72e4",
-                                            borderRadius: "8px",
-                                        }}
+                                        type="primary"
                                     >
                                         View More
                                     </Button>
@@ -210,10 +207,7 @@ const Cards = () => {
                                     <Button
                                         size="large"
                                         className="!text-white !text-sm !font-semibold"
-                                        style={{
-                                            backgroundColor: "#5e72e4",
-                                            borderRadius: "8px",
-                                        }}
+                                        type="primary"
                                     >
                                         View More
                                     </Button>
@@ -283,10 +277,7 @@ const Cards = () => {
                                     <Button
                                         size="large"
                                         className="!text-white !text-sm !font-semibold"
-                                        style={{
-                                            backgroundColor: "#5e72e4",
-                                            borderRadius: "8px",
-                                        }}
+                                        type="primary"
                                     >
                                         View More
                                     </Button>
@@ -310,10 +301,7 @@ const Cards = () => {
                                     <Button
                                         size="small"
                                         className="!flex items-center !text-white !text-sm !font-semibold !py-3 !ml-2"
-                                        style={{
-                                            backgroundColor: "#5e72e4",
-                                            borderRadius: "8px",
-                                        }}
+                                        type="primary"
                                     >
                                         Add
                                     </Button>
@@ -378,10 +366,7 @@ const Cards = () => {
                                     <Button
                                         size="large"
                                         className="!text-white !text-sm !font-semibold"
-                                        style={{
-                                            backgroundColor: "#5e72e4",
-                                            borderRadius: "8px",
-                                        }}
+                                        type="primary"
                                     >
                                         View More
                                     </Button>
@@ -441,10 +426,7 @@ const Cards = () => {
                                     <Button
                                         size="large"
                                         className="!text-white !border-0 !text-sm !font-semibold !my-5"
-                                        style={{
-                                            backgroundColor: "#5e72e4",
-                                            borderRadius: "8px",
-                                        }}
+                                        type="primary"
                                     >
                                         Start free trial
                                     </Button>
@@ -482,10 +464,7 @@ const Cards = () => {
                                     <Button
                                         size="large"
                                         className="!text-white !text-sm !font-semibold"
-                                        style={{
-                                            backgroundColor: "#5e72e4",
-                                            borderRadius: "8px",
-                                        }}
+                                        type="primary"
                                     >
                                         View More
                                     </Button>
@@ -555,10 +534,7 @@ const Cards = () => {
                                     <Button
                                         size="large"
                                         className="!text-white !border-0 !text-sm !my-5 !font-semibold"
-                                        style={{
-                                            backgroundColor: "#5e72e4",
-                                            borderRadius: "8px",
-                                        }}
+                                        type="primary"
                                     >
                                         Start free trial
                                     </Button>

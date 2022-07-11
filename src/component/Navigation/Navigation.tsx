@@ -183,7 +183,7 @@ const Navigation = (props: NavigationProps) => {
     const { collapsed, setCollapsed } = props;
     return (
         <Header
-            className="!bg-indigo-500 !m-0 !h-fit !w-full"
+            className="!bg-indigo-410 !m-0 !h-fit !w-full"
             style={{
                 padding: 0,
             }}

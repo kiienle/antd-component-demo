@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.less";
-import "antd/dist/antd.less";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./component/login/login";
 import HomeComponent from "./component/Home/Home2";
@@ -8,6 +7,7 @@ import Profile from "./Pages/Profile/Profile";
 import Buttons from "./Pages/Buttons/Buttons";
 import Dasboard from "./Pages/Dashboard/dashboard";
 import Cards from "./Pages/Cards/Cards";
+import Notifications from "./Pages/Notifys/Notifications";
 
 function App() {
     return (
@@ -18,6 +18,10 @@ function App() {
                     <Route path="/components">
                         <Route path="buttons" element={<Buttons />} />
                         <Route path="cards" element={<Cards />} />
+                        <Route
+                            path="notifications"
+                            element={<Notifications />}
+                        />
                     </Route>
                     <Route path="/profile" element={<Profile />} />
                 </Route>
