@@ -11,6 +11,7 @@ import { useEffect, useRef } from "react";
 import Scrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 import BreadCrumb from "../../component/BreadCrumb";
+import userServices from "../../services/userServices";
 
 interface DataType {
     key: React.Key;
@@ -105,6 +106,16 @@ const Dasboard = () => {
             }
         };
     }, []);
+
+    const handleGetAllUsers = async () => {
+        let response = await userServices.getAllUsers();
+        console.log("check data", response.data);
+    };
+
+    useEffect(() => {
+        handleGetAllUsers();
+    }, []);
+
     return (
         <div className="w-full h-full">
             <BreadCrumb />

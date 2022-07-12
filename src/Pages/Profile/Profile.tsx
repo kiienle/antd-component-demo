@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Col, Divider, Progress, Row, Space } from "antd";
 import { Avatar, Card, List, Form, Input } from "antd";
 import { BiUpArrowAlt } from "react-icons/bi";
@@ -6,6 +6,7 @@ import { BsHandIndexThumbFill } from "react-icons/bs";
 import { GoLocation } from "react-icons/go";
 import { FaChartPie } from "react-icons/fa";
 import "antd/dist/antd.less";
+import userServices from "../../services/userServices";
 
 const { Meta } = Card;
 
@@ -96,9 +97,7 @@ const Profile = () => {
     const [form] = Form.useForm();
 
     const onFinish1 = (values: any) => {
-        // console.log(values)
         form.resetFields();
-        console.log(form.getFieldValue("username"));
     };
 
     return (
